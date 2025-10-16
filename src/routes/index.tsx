@@ -281,7 +281,7 @@ function RouteComponent() {
     placeholderData: [
       ["", "", "", "", "", "", ""],
       ["", "", "", "", "", "", ""],
-      ["", "", "", "", "", ""],
+      ["", "", "", "", "", "", ""],
       ["", "", "", "", "", "", ""],
       ["", "", "", "", "", "", ""],
     ],
@@ -544,7 +544,7 @@ function RouteComponent() {
               </thead>
 
               <tbody>
-                {timetables!.map((_, periodIndex) => (
+                {[0, 1, 2, 3, 4, 5, 6].map((_, periodIndex) => (
                   <tr key={periodIndex}>
                     <td className="border px-2 py-1 text-center text-[12px]">
                       {periodIndex + 1}
