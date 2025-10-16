@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>사이트에 연결할 수 없습니다</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      html {
+        background: #242424;
+        color: #ffffff;
+      }
+
+      body {
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        font-family:
+          SUIT,
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          Roboto,
+          'Helvetica Neue',
+          'Segoe UI',
+          'Apple SD Gothic Neo',
+          'Noto Sans KR',
+          'Malgun Gothic',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          sans-serif;
+      }
+
+      h1 {
+        margin: 20px 0;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      div:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #aaa;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .buttons > :is(a, button) {
+        display: inline-flex;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+      }
+      .buttons > :is(a, button) > svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: #f1f1f1;
+      }
+
+      .fixed-elem {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      @media (max-width: 424px) {
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        div {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>사이트에 연결할 수 없습니다</h1>
+    <div>네트워크에 문제가 없다면 관리자에게 문의해주세요.</div>
+    <br />
+    <div>네트워크 상태 : <span id="network-status"></span></div>
+    <div class="buttons fixed-elem">
+      <button id="reload" aria-label="새로 고침">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="882" height="1024" viewBox="0 0 882 1024">
+          <path
+            d="M881.151 101.060v257.002c0 20.080-16.635 36.715-36.715 36.715h-257.002c-14.917 0-28.108-9.179-33.846-22.945-5.738-13.195-2.869-29.258 8.032-39.585l79.165-79.165c-53.926-49.91-125.059-78.594-200.21-78.594-161.775 0-293.717 131.944-293.717 293.717s131.944 293.717 293.717 293.717c91.213 0 175.541-41.303 231.761-114.158 2.869-4.016 8.032-6.31 13.195-6.885 5.163 0 10.326 1.722 14.342 5.163l78.594 79.165c6.885 6.31 6.885 17.211 1.147 24.667-83.757 100.965-207.667 158.906-339.036 158.906-242.661 0-440.575-197.915-440.575-440.575s197.915-440.575 440.575-440.575c113.011 0 222.582 45.319 303.469 121.618l74.578-74.002c10.326-10.901 26.39-13.766 40.156-8.032 13.195 5.738 22.374 18.929 22.374 33.846z"
+          />
+        </svg>
+      </button>
+    </div>
+    <script>
+      document.querySelector('#network-status').innerText = `${navigator.onLine ? '온' : '오프'}라인`
+
+      document.querySelectorAll('div')[0].innerHTML = `${
+        navigator.onLine
+          ? '현재 사이트에 연결 할 수 없습니다. 관리자에게 문의해 주세요.'
+          : '네트워크 연결이 불안정 합니다. 안정적인 환경에서 접속해 주세요.'
+      }`
+
+      window.addEventListener('online', () => {
+        location.reload()
+      })
+
+      document.getElementById('reload').addEventListener('click', () => {
+        location.reload()
+      })
+    </script>
+  </body>
+</html>
