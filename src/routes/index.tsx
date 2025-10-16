@@ -74,7 +74,7 @@ function RouteComponent() {
   }, [])
 
   return (
-    <div className="mx-auto max-w-3xl py-6 tracking-tighter">
+    <div className="mx-auto max-w-2xl py-6 tracking-tighter">
       <h1 className="inline-flex items-center gap-3 pb-6 text-2xl font-bold">
         <img
           src="/knuhs-logo.png"
