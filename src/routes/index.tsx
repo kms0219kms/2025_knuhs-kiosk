@@ -115,7 +115,7 @@ function DateAndDetailItem({
 function RouteComponent() {
   const kmaService = new KmaService(
     import.meta.env.VITE_PUBLIC_KMA_KEY,
-    "https://proxy-ap.corsfix.com/?url=https://apihub.kma.go.kr",
+    "https://test.cors.workers.dev/?https://apihub.kma.go.kr",
   )
   const neisClient = new Neis({
     key: import.meta.env.VITE_PUBLIC_NEIS_KEY,
